@@ -15,21 +15,21 @@ export const BlogPostShow = () => {
 
   const record = data?.data;
 
-  const { data: categoryData, isLoading: categoryIsLoading } = useOne({
-    resource: "categories",
-    id: record?.category?.id || "",
-    queryOptions: {
-      enabled: !!record,
-    },
-  });
+  // const { data: categoryData, isLoading: categoryIsLoading } = useOne({
+  //   resource: "categories",
+  //   id: record?.category?.id || "",
+  //   queryOptions: {
+  //     enabled: !!record,
+  //   },
+  // });
 
   return (
     <Show isLoading={isLoading}>
       <Stack gap={1}>
-        <Typography variant="body1" fontWeight="bold">
+        {/* <Typography variant="body1" fontWeight="bold">
           {"ID"}
-        </Typography>
-        <NumberField value={record?.id ?? ""} />
+        </Typography> */}
+        {/* <NumberField value={record?.id || ""} /> */}
 
         <Typography variant="body1" fontWeight="bold">
           {"Title"}
@@ -39,16 +39,16 @@ export const BlogPostShow = () => {
         <Typography variant="body1" fontWeight="bold">
           {"Content"}
         </Typography>
-        <MarkdownField value={record?.content} />
+        <MarkdownField value={record?.body} />
 
-        <Typography variant="body1" fontWeight="bold">
+        {/* <Typography variant="body1" fontWeight="bold">
           {"Category"}
-        </Typography>
-        {categoryIsLoading ? <>Loading...</> : <>{categoryData?.data?.title}</>}
+        </Typography> */}
+        {/* {categoryIsLoading ? <>Loading...</> : <>{categoryData?.data?.title}</>}
         <Typography variant="body1" fontWeight="bold">
           {"Status"}
         </Typography>
-        <TextField value={record?.status} />
+        <TextField value={record?.status} /> */}
         <Typography variant="body1" fontWeight="bold">
           {"CreatedAt"}
         </Typography>

@@ -17,7 +17,7 @@ export const BlogPostList = () => {
   });
 
   const { data: categoryData, isLoading: categoryIsLoading } = useMany({
-    resource: "categories",
+    resource: "blog-posts",
     ids:
       dataGridProps?.rows
         ?.map((item: any) => item?.category?.id)
@@ -42,38 +42,38 @@ export const BlogPostList = () => {
         minWidth: 200,
       },
       {
-        field: "content",
+        field: "body",
         flex: 1,
-        headerName: "content",
+        headerName: "body",
         minWidth: 250,
         renderCell: function render({ value }) {
           if (!value) return "-";
           return <MarkdownField value={value?.slice(0, 80) + "..." || ""} />;
         },
       },
-      {
-        field: "category",
-        flex: 1,
-        headerName: "Category",
-        minWidth: 300,
-        valueGetter: ({ row }) => {
-          const value = row?.category;
-          return value;
-        },
-        renderCell: function render({ value }) {
-          return categoryIsLoading ? (
-            <>Loading...</>
-          ) : (
-            categoryData?.data?.find((item) => item.id === value?.id)?.title
-          );
-        },
-      },
-      {
-        field: "status",
-        flex: 1,
-        headerName: "Status",
-        minWidth: 200,
-      },
+      // {
+      //   field: "category",
+      //   flex: 1,
+      //   headerName: "Category",
+      //   minWidth: 300,
+      //   valueGetter: ({ row }) => {
+      //     const value = row?.category;
+      //     return value;
+      //   },
+      //   renderCell: function render({ value }) {
+      //     return categoryIsLoading ? (
+      //       <>Loading...</>
+      //     ) : (
+      //       categoryData?.data?.find((item) => item.id === value?.id)?.title
+      //     );
+      //   },
+      // },
+      // {
+      //   field: "status",
+      //   flex: 1,
+      //   headerName: "Status",
+      //   minWidth: 200,
+      // },
       {
         field: "createdAt",
         flex: 1,

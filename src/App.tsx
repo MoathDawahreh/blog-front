@@ -44,12 +44,12 @@ function App() {
           <RefineSnackbarProvider>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+                dataProvider={dataProvider("http://localhost:3000/v1")}
                 notificationProvider={notificationProvider}
                 routerProvider={routerBindings}
                 resources={[
                   {
-                    name: "blog_posts",
+                    name: "blog-posts",
                     list: "/blog-posts",
                     create: "/blog-posts/create",
                     edit: "/blog-posts/edit/:id",
@@ -58,16 +58,16 @@ function App() {
                       canDelete: true,
                     },
                   },
-                  {
-                    name: "categories",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
-                  },
+                  // {
+                  //   name: "categories",
+                  //   list: "/categories",
+                  //   create: "/categories/create",
+                  //   edit: "/categories/edit/:id",
+                  //   show: "/categories/show/:id",
+                  //   meta: {
+                  //     canDelete: true,
+                  //   },
+                  // },
                 ]}
                 options={{
                   syncWithLocation: true,
@@ -94,12 +94,12 @@ function App() {
                       <Route path="edit/:id" element={<BlogPostEdit />} />
                       <Route path="show/:id" element={<BlogPostShow />} />
                     </Route>
-                    <Route path="/categories">
+                    {/* <Route path="/categories">
                       <Route index element={<CategoryList />} />
                       <Route path="create" element={<CategoryCreate />} />
                       <Route path="edit/:id" element={<CategoryEdit />} />
                       <Route path="show/:id" element={<CategoryShow />} />
-                    </Route>
+                    </Route> */}
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>
                 </Routes>

@@ -15,10 +15,10 @@ export const BlogPostEdit = () => {
 
   const blogPostsData = queryResult?.data?.data;
 
-  const { autocompleteProps: categoryAutocompleteProps } = useAutocomplete({
-    resource: "categories",
-    defaultValue: blogPostsData?.category?.id,
-  });
+  // const { autocompleteProps: categoryAutocompleteProps } = useAutocomplete({
+  //   resource: "categories",
+  //   defaultValue: blogPostsData?.category?.id,
+  // });
 
   return (
     <Edit isLoading={formLoading} saveButtonProps={saveButtonProps}>
@@ -41,7 +41,7 @@ export const BlogPostEdit = () => {
           name="title"
         />
         <TextField
-          {...register("content", {
+          {...register("body", {
             required: "This field is required",
           })}
           error={!!(errors as any)?.content}
@@ -51,10 +51,10 @@ export const BlogPostEdit = () => {
           InputLabelProps={{ shrink: true }}
           multiline
           label={"Content"}
-          name="content"
+          name="body"
           rows={4}
         />
-        <Controller
+        {/* <Controller
           control={control}
           name={"category.id"}
           rules={{ required: "This field is required" }}
@@ -100,8 +100,8 @@ export const BlogPostEdit = () => {
               )}
             />
           )}
-        />
-        <Controller
+        /> */}
+        {/* <Controller
           name="status"
           control={control}
           render={({ field }) => {
@@ -117,7 +117,7 @@ export const BlogPostEdit = () => {
               </Select>
             );
           }}
-        />
+        /> */}
       </Box>
     </Edit>
   );

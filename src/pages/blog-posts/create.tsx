@@ -12,9 +12,9 @@ export const BlogPostCreate = () => {
     formState: { errors },
   } = useForm({});
 
-  const { autocompleteProps: categoryAutocompleteProps } = useAutocomplete({
-    resource: "categories",
-  });
+  // const { autocompleteProps: categoryAutocompleteProps } = useAutocomplete({
+  //   resource: "categories",
+  // });
 
   return (
     <Create isLoading={formLoading} saveButtonProps={saveButtonProps}>
@@ -37,7 +37,7 @@ export const BlogPostCreate = () => {
           name="title"
         />
         <TextField
-          {...register("content", {
+          {...register("body", {
             required: "This field is required",
           })}
           error={!!(errors as any)?.content}
@@ -47,9 +47,9 @@ export const BlogPostCreate = () => {
           InputLabelProps={{ shrink: true }}
           multiline
           label={"Content"}
-          name="content"
+          name="body"
         />
-        <Controller
+        {/* <Controller
           control={control}
           name={"category.id"}
           rules={{ required: "This field is required" }}
@@ -95,8 +95,8 @@ export const BlogPostCreate = () => {
               )}
             />
           )}
-        />
-        <Controller
+        /> */}
+        {/* <Controller
           name="status"
           control={control}
           render={({ field }) => {
@@ -112,7 +112,7 @@ export const BlogPostCreate = () => {
               </Select>
             );
           }}
-        />
+        /> */}
       </Box>
     </Create>
   );
