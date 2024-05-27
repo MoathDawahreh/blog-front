@@ -44,7 +44,7 @@ function App() {
           <RefineSnackbarProvider>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("http://localhost:3000/v1")}
+                dataProvider={dataProvider("https://api.vuedale.com/v1")}
                 notificationProvider={notificationProvider}
                 routerProvider={routerBindings}
                 resources={[
